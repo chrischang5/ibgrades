@@ -7,11 +7,11 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import Stats from "./Stats";
 import { Bar } from "react-chartjs-2";
 
 function Display(props) {
   let data = props.data || {
-    Name: "",
     Candidates: 0,
     "1%": 0,
     "2%": 0,
@@ -32,13 +32,18 @@ function Display(props) {
 
   return (
     <div className="container">
+      <Stats stats={data}></Stats>
       <Bar
         options={{
           responsive: true,
           plugins: {
             title: {
               display: true,
-              text: data["Name"],
+              text: `${
+                data["Name"]
+                  ? data["Name"] + " " + data["Session"] + " " + data["Year"]
+                  : ""
+              }`,
             },
           },
         }}

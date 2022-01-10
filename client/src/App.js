@@ -1,8 +1,9 @@
 import "./App.css";
-import SearchBar from "./SearchBar";
+import SearchBar from "./components/SearchBar";
 import { useState } from "react";
 import React from "react";
-import Display from "./Display";
+import Display from "./components/Display";
+import Header from "./components/Header"
 
 function App() {
   const [searchParams, setSearchParams] = useState({});
@@ -20,15 +21,11 @@ function App() {
   // JSX. Pass in wrapper functions to update App state
   return (
     <div className="App">
+      <Header></Header>
       <SearchBar
         updateSearchParams={updateSearchParams}
         updateData={updateData}
       ></SearchBar>
-      <p>
-        {searchParams.subject} {searchParams.level} {searchParams.session}{" "}
-        {searchParams.year}
-      </p>
-      <p>Number Candidates: {data["Candidates"]}</p>
       <Display data={data}></Display>
     </div>
   );
