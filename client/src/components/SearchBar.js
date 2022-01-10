@@ -101,11 +101,6 @@ function SearchBar(props) {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col mt-3 center-block text-center">
-          <h1>IB Grades Search</h1>
-        </div>
-      </div>
 
       <div className="row">
         <div className="col">
