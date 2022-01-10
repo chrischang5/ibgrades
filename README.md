@@ -1,4 +1,4 @@
-# IB Grades React App
+# IB Grades React Website
 
 This project provides a way for IB students to view and visualize historical International Baccalaureate (IB) grade distributions. Currently, it's a proof of concept with data only available for May 2019 and May 2018.
 
