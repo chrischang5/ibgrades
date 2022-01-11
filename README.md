@@ -1,6 +1,6 @@
 # IB Grades React Website
 
-This project provides a way for IB students to view and visualize historical International Baccalaureate (IB) grade distributions. Currently, it's a proof of concept with data only available for May 2019 and May 2018. But, I hope to expand on it and add [these features](https://github.com/chrischang5/ibgrades#future-features) in the future.
+This project provides a way for IB students to view and visualize historical International Baccalaureate (IB) grade distributions. Currently, it's a proof of concept with data only available for May 2019 and May 2018. But, I hope to eventually add all available data, deploy the project, and add [these features](https://github.com/chrischang5/ibgrades#future-features) in the future.
 
 This project was built using React, HTML, Bootstrap CSS, Chart.js, Node.js, Express, MongoDB, Excel, and Python.
 
