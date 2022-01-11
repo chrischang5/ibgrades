@@ -1,6 +1,6 @@
 # IB Grades React Website
 
-This project provides a way for IB students to view and visualize historical International Baccalaureate (IB) grade distributions. Currently, it's a proof of concept with data only available for May 2019 and May 2018.
+This project provides a way for IB students to view and visualize historical International Baccalaureate (IB) grade distributions. Currently, it's a proof of concept with data only available for May 2019 and May 2018. But, I hope to expand on it and add [these features](https://github.com/chrischang5/ibgrades#future-features) in the future.
 
 This project was built using React, HTML, Bootstrap CSS, Chart.js, Node.js, Express, MongoDB, Excel, and Python.
 
@@ -12,7 +12,7 @@ The website uses `chartjs-react-2` to create dynamic and responsive charts to di
 ![image](https://user-images.githubusercontent.com/64388914/148728441-f9bc9505-3e5f-4706-bbb7-bc3bd0715815.png)
 
 ## Cascading Dropdowns
-Dropdowns dynamically populate based on previous selections in the search bar.
+Dropdowns dynamically populate based on previous selections in the search bar and based on what is readily available in the database.
 
 Example: Currently only May 2018 and May 2019 data is available and this is reflected in the dropdown
 
