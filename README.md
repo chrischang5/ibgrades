@@ -14,6 +14,10 @@ The website uses `chartjs-react-2` to create dynamic and responsive charts to di
 ## Cascading Dropdowns
 Dropdowns dynamically populate based on previous selections in the search bar.
 
+Example: Currently only May 2018 and May 2019 data is available and this is reflected in the dropdown
+
+![image](https://user-images.githubusercontent.com/64388914/149018872-e6cfde4e-01a9-4f0a-a0ed-eadad0f43962.png)
+
 Example: Level dropdown with two fields when `2019 May Physics` is selected. 
 
 ![image](https://user-images.githubusercontent.com/64388914/148728547-f211507b-01a2-408a-87a0-0dc2884c2da9.png)
