@@ -12,6 +12,7 @@ app.get("/api/courses", CoursesController.apiQueryCourse);
 app.get("/api/sessions", CoursesController.getUniqueSessions);
 app.get("/api/subject_names", CoursesController.getUniqueSubjectNames)
 app.get("/api/levels", CoursesController.getUniqueLevels)
+app.get("/api/years", CoursesController.getUniqueYears)
 
 app.use("*", (req, res) => {
   res.status(404).json({ error: "Page not found." });

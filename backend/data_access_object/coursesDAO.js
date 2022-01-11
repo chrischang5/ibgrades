@@ -21,6 +21,38 @@ export default class CoursesDAO {
 
   /**
    *
+   * @returns A Promise resolving to an array of numbers describing years for which course historical grade distributions are avaiable
+   *          Promise resolves to an empty array if no years available
+   *          Promise rejects with an error if querying fails or internal server error
+   */
+
+  static getYears() {
+    return new Promise((resolve, reject) => {
+      const pipeline = [{ $group: { _id: "$Year" } }];
+
+      courses
+        .aggregate(pipeline)
+        .toArray()
+        .then(
+          (result) => {
+            let res = [];
+            result.forEach((year) => {
+              if (year._id) res.push(year._id);
+            });
+            resolve(res.sort().reverse());
+          },
+          (err) => {
+            reject(err);
+          }
+        )
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   *
    * @param {*} filters An object with properties subject, level, session, and year
    * @returns A Promise resolving to an object containing course data for the specified course in all fields are filled.
    *          Promise resolves to an empty array if filters are not set or if course does not exist
@@ -133,16 +165,14 @@ export default class CoursesDAO {
           },
           { $group: { _id: "$Subject" } },
         ];
-
         courses
           .aggregate(pipeline)
           .toArray()
           .then(
             (result) => {
-              console.log(result);
               let res = [];
               result.forEach((course) => {
-                if (course._id) res.push(course._id);
+                if (course.hasOwnProperty("_id")) res.push(course._id);
               });
               resolve(res.sort());
             },
@@ -192,13 +222,12 @@ export default class CoursesDAO {
           .aggregate(pipeline)
           .toArray()
           .then(
-            (res) => {
-              let result = [];
-              res.forEach((level) => {
-                result.push(level._id);
+            (result) => {
+              let res = [];
+              result.forEach((level) => {
+                if (level.hasOwnProperty("_id")) res.push(level._id);
               });
-              console.log(result);
-              resolve(result.sort());
+              resolve(res.sort());
             },
             (rej) => {
               reject(rej);

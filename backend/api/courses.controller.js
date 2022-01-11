@@ -18,6 +18,11 @@ export default class CoursesController {
     res.json(course);
   }
 
+  static async getUniqueYears(req, res, next) {
+    let years = await CoursesDAO.getYears();
+    res.json(years);
+  } 
+
   static async getUniqueSessions(req, res, next) {
     let params = req.query;
 

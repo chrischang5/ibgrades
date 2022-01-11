@@ -3,16 +3,12 @@ import SearchBar from "./components/SearchBar";
 import { useState } from "react";
 import React from "react";
 import Display from "./components/Display";
-import Header from "./components/Header"
+import Header from "./components/Header";
 
 function App() {
-  const [searchParams, setSearchParams] = useState({});
   const [data, setData] = useState({});
 
   // Wrapper functions for updating App state
-  const updateSearchParams = (searchParams) => {
-    setSearchParams(searchParams);
-  };
 
   const updateData = (data) => {
     setData(data);
@@ -22,10 +18,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <SearchBar
-        updateSearchParams={updateSearchParams}
-        updateData={updateData}
-      ></SearchBar>
+      <SearchBar updateData={updateData}></SearchBar>
       <Display data={data}></Display>
     </div>
   );

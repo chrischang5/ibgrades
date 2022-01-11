@@ -10,18 +10,12 @@ function SearchBar(props) {
   const [session, setSession] = useState("");
   const [year, setYear] = useState("");
 
+  const [yearOptions, setYearOptions] = useState([]);
   const [sessionOptions, setSessionOptions] = useState([]);
   const [subjectNameOptions, setSubjectNameOptions] = useState([]);
   const [levelOptions, setLevelOptions] = useState([]);
 
   const searchButtonClickHandler = () => {
-    props.updateSearchParams({
-      subject: subject,
-      level: level,
-      session: session,
-      year: year,
-    });
-
     axios
       .get(
         `${APIUrl}/courses?subject=${subject}&level=${level}&session=${session}&year=${year}`
@@ -38,6 +32,18 @@ function SearchBar(props) {
         console.error(err);
       });
   };
+
+  useEffect(() => {
+    axios
+      .get(`${APIUrl}/years`)
+      .then((result) => {
+        setYearOptions(result.data);
+        setYear(result.data[0]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   useEffect(() => {
     if (year && year !== "") {
@@ -101,22 +107,23 @@ function SearchBar(props) {
 
   return (
     <div className="container">
-
       <div className="row">
         <div className="col">
           <label htmlFor="year-field">Year</label>
-          <input
-            className="form-control"
+          <select
+            className="form-select"
             name="year-field"
             id="year-field"
-            type="number"
-            min="2000"
-            max="2022"
             placeholder="Year"
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            onClick={(e) => setYear(e.target.value)}
-          ></input>
+          >
+            {yearOptions.map((session) => (
+              <option className="dropdown-item" key={session} value={session}>
+                {session}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="col">
           <label htmlFor="session-field">Session</label>
@@ -128,7 +135,6 @@ function SearchBar(props) {
             onChange={(e) => {
               setSession(e.target.value);
             }}
-            onClick={(e) => setSession(e.target.value)}
             required
           >
             {sessionOptions.map((session) => (
@@ -150,7 +156,6 @@ function SearchBar(props) {
             onChange={(e) => {
               setSubject(e.target.value);
             }}
-            onClick={(e) => setSubject(e.target.value)}
             required
           >
             {subjectNameOptions.map((subject_name) => (
@@ -174,7 +179,6 @@ function SearchBar(props) {
             onChange={(e) => {
               setLevel(e.target.value);
             }}
-            onClick={(e) => setLevel(e.target.value)}
           >
             {levelOptions.map((level) => (
               <option className="dropdown-item" key={level} value={level}>
