@@ -26,4 +26,7 @@ Example: Level dropdown populated with one field when `2019 May Food Sci. Tech` 
 The grade distribution data comes directly from the May and November releases of the Diploma Programme (DP) Statistical Bulletins. These bulletins can be found on [IBO's DP statistical bulletin page](https://www.ibo.org/about-the-ib/facts-and-figures/statistical-bulletins/diploma-programme-statistical-bulletin/).
 A repository containing the PDFs and CSV formats of the data is available [on my GitHub](https://github.com/chrischang5/ibgrades-data).
 
+# Future Features
+On top of automating the gathering and parsing of more grades data, I hope to include some statistical analyses of each grade distributions so I can explore the field of data science and statistics. I also hope to add a way to view historical trends of classes. A final feature would be to create more visuals for other data found in the DP Statistical Bulletins and encorporate them into the website.
+
 This project is in no way affiliated with IBO or the IB Programme.
